@@ -18,11 +18,11 @@ class CreateUserProfilesTable extends Migration
             $table->string('first_name');
             $table->string('middle_name')->nullable();
             $table->string('last_name');
-            $table->string('nickname')->nullable();
+            $table->string('nickname', 45)->nullable();
             $table->string('email_address');
-            $table->string('username');
-            $table->string('password');
-            $table->string('access_type');
+            $table->string('username', 50);
+            $table->string('password', 500);
+            $table->string('access_type', 45);
             $table->timestamps();
         });
     }
