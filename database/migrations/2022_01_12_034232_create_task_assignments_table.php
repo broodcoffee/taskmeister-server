@@ -14,17 +14,13 @@ class CreateTaskAssignmentsTable extends Migration
     public function up()
     {
         Schema::create('task_assignment', function (Blueprint $table) {
-            $table->integer('user_profile_id')->unsigned();
-            $table->integer('task_id')->unsigned();
             $table->timestamp('date_created');
-            $table->foreign('user_profile_id')
-                ->references('id')
-                ->on('user_profile')
+            $table->foreignId('user_profile_id')
+                ->constrained('user_profile')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->foreign('task_id')
-                ->references('id')
-                ->on('task')
+            $table->foreignId('task_id')
+                ->constrained('task')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
