@@ -17,17 +17,13 @@ class CreateTasksTable extends Migration
             $table->id();
             $table->string('task_name');
             $table->text('task_summary');
-            $table->unsignedInteger('project_id');
-            $table->unsignedInteger('status_id');
             $table->timestamps();
-            $table->foreign('project_id')
-                ->references('id')
-                ->on('project')
+            $table->foreignId('project_id')
+                ->constrained('project')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->foreign('status_id')
-                ->references('id')
-                ->on('status')
+            $table->foreignId('status_id')
+                ->constrained('status')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

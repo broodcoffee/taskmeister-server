@@ -18,17 +18,13 @@ class CreateProjectsTable extends Migration
             $table->string('project_name');
             $table->text('project_summary');
             $table->string('token');
-            $table->unsignedInteger('user_profile_id');
-            $table->unsignedInteger('status_id');
             $table->timestamps();
-            $table->foreign('user_profile_id')
-                ->references('id')
-                ->on('user_profile')
+            $table->foreignId('user_profile_id')
+                ->constrained('user_profile')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->foreign('status_id')
-                ->references('id')
-                ->on('status')
+            $table->foreignId('status_id')
+                ->constrained('status')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
