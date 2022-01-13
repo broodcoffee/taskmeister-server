@@ -17,8 +17,8 @@ class CreateTasksTable extends Migration
             $table->id();
             $table->string('task_name');
             $table->text('task_summary');
-            $table->integer('project_id')->unsigned();
-            $table->integer('status_id')->unsigned();
+            $table->unsignedInteger('project_id');
+            $table->unsignedInteger('status_id');
             $table->timestamps();
             $table->foreign('project_id')
                 ->references('id')

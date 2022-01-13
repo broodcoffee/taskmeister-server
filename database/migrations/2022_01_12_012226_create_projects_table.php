@@ -18,8 +18,8 @@ class CreateProjectsTable extends Migration
             $table->string('project_name');
             $table->text('project_summary');
             $table->string('token');
-            $table->integer('user_profile_id')->unsigned();
-            $table->integer('status_id')->unsigned();
+            $table->unsignedInteger('user_profile_id');
+            $table->unsignedInteger('status_id');
             $table->timestamps();
             $table->foreign('user_profile_id')
                 ->references('id')
