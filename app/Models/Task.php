@@ -13,7 +13,7 @@ class Task extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['task_name'];
+    protected $fillable = ['task_name', 'task_summary'];
 
     public function project() {
         return $this->belongsTo(Project::class);
