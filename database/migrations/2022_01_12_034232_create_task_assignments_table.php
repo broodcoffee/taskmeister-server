@@ -16,6 +16,7 @@ class CreateTaskAssignmentsTable extends Migration
         Schema::create('task_assignment', function (Blueprint $table) {
             $table->integer('user_profile_id')->unsigned();
             $table->integer('task_id')->unsigned();
+            $table->timestamp('date_created');
             $table->foreign('user_profile_id')
                 ->references('id')
                 ->on('user_profile')
