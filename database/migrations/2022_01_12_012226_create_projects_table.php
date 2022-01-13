@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->string('project_name', 100);
             $table->text('project_summary')->nullable();
-            $table->string('token');
+            $table->string('token', 60);
             $table->timestamps();
             $table->foreignId('user_profile_id')
                 ->constrained('user_profile')
